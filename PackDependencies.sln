@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leaf", "Leaf\Leaf.csproj", "{79E1E26D-68C4-4E10-90A8-7E60E00E6592}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib", "Lib\Lib.csproj", "{371CB263-B1F6-4508-85E3-3E1BC5B584E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79E1E26D-68C4-4E10-90A8-7E60E00E6592}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79E1E26D-68C4-4E10-90A8-7E60E00E6592}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79E1E26D-68C4-4E10-90A8-7E60E00E6592}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79E1E26D-68C4-4E10-90A8-7E60E00E6592}.Release|Any CPU.Build.0 = Release|Any CPU
+		{371CB263-B1F6-4508-85E3-3E1BC5B584E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{371CB263-B1F6-4508-85E3-3E1BC5B584E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{371CB263-B1F6-4508-85E3-3E1BC5B584E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{371CB263-B1F6-4508-85E3-3E1BC5B584E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
