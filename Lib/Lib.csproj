@@ -6,23 +6,23 @@
     <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CopyProjectReferencesToPackage</TargetsForTfmSpecificContentInPackage>
     <!-- This ensures that only this project's assembly is available as a compile time reference. It is important that none of the Leaf projects have APIs exposed in the Lib API. -->
     <BuildOutputTargetFolder>lib;ref</BuildOutputTargetFolder>
+    <!-- Enable pinning only for this project. Pinning will make every transitive package used in this graph and declared in Directory.Packages.props as transitive, ensuring no PackageReference are missed. -->
+    <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
   </PropertyGroup>
 
   <ItemGroup>
     <!-- Declare PrivateAssets all on all project references you want to merge into your package. 
+    Unfortunately transitive pinning does elevate packages to top level dependencies if they're coming through a project that's been marked with PrivateAssets.
+    This approach will be missing it's dependencies as well.
      -->
     <ProjectReference Include="..\Leaf\Leaf.csproj" PrivateAssets="all" /> 
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <!-- The generated package won't get a reference to NuGet.Frameworks but it probably needs it, unless we manually declare it here. -->
-    <PackageReference Include="NuGet.Frameworks" Version="6.9.1" />
+    <PackageReference Include="Newtonsoft.Json" />
   </ItemGroup>
 
   <Target Name="CopyProjectReferencesToPackage" DependsOnTargets="BuildOnlySettings;ResolveReferences">
-
-
     <ItemGroup>
       <!-- Include only projects with PrivateAssets all, Anything without a PrivateAssets all will be assumed to be a package itself. -->
       <TfmSpecificPackageFile Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')->WithMetadataValue('PrivateAssets', 'All'))"
