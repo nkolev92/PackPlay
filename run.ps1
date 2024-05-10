@@ -1,2 +1,2 @@
-msbuild -t:build /restore .\Lib\Lib.csproj
-msbuild -t:pack .\Lib\Lib.csproj
+dotnet build .\Lib\Lib.csproj
+dotnet pack --no-build .\Lib\Lib.csproj
